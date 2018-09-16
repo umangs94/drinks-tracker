@@ -10,13 +10,40 @@
 <body>
     <script>
         $(document).ready(function () {
-            Cookies.set('name', 'Umang', { expires: 30 });
+            if (Cookies.get('profileSet') == 'true') {
+                $('#form').hide();
+                $('#btnSave').hide();
+                $('#hi').text('Hi, ' + Cookies.get('name') + '!');
+            }
         });
+
+        function saveInfo() {
+            Cookies.set('name', $('#name').val(), { expires: 30 });
+            Cookies.set('gender', $('#gender').val(), { expires: 30 });
+            Cookies.set('weight', $('#weight').val(), { expires: 30 });
+            Cookies.set('metabolism', $('#metabolism').val(), { expires: 30 });
+            Cookies.set('units', $('#units').val(), { expires: 30 });
+            Cookies.set('profileSet', 'true', { expires: 30 });
+            location.reload();
+        };
     </script>
 
-    <h1>Hello world</h1>
-    <p>Hello world</p>
+    <h1 id='hi'>Hi</h1>
+    <div id='form'>
+        <input type="text" placeholder="Name" id="name" />
+        <br>
+        <input type="text" placeholder="Gender" id="gender" />
+        <br>
+        <input type="number" placeholder="Weight" id="weight" />
+        <br>
+        <input type="text" placeholder="Metabolism" id="metabolism" />
+        <br>
+        <input type="text" placeholder="Units" id="units" />
+        <br>
+        <br>
+    </div>
     <a href="profile.html">Profile</a>
+    <a onclick="saveInfo()" href="#" id="btnSave">Save</a>
     <a onclick="Cookies.remove('name')" href="#">Clear name</a>
 </body>
 

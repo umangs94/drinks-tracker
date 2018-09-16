@@ -11,10 +11,18 @@
     <script>
         $(document).ready(function(){
             $('#name').text(Cookies.get('name'));
+            $('#gender').text(Cookies.get('gender'));
+            $('#weight').text(Cookies.get('weight'));
+            $('#metabolism').text(Cookies.get('metabolism'));
+            $('#units').text(Cookies.get('units'));
         });
     </script>
     <h1>Profile</h1>
-    <p id='name'>Hello world</p>
+    <p id='name'>Name</p>
+    <p id='gender'>Gender</p>
+    <p id='weight'>Weight</p>
+    <p id='metabolism'>Metabolism</p>
+    <p id='units'>Units</p>
     <a href="index.html">Home</a>
 
 </body>
