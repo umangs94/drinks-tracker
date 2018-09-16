@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drinks Tracker</title>
+</head>
+
+<body>
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        window.onload = function () {
+            var n = getCookie('name');
+            document.getElementById('name').innerText = n;
+        };
+    </script>
+    <h1>Profile</h1>
+    <p id='name'>Hello world</p>
+    <a href="index.html">Home</a>
+
+</body>
+
+</html>
