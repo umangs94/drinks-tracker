@@ -3,29 +3,15 @@
 
 <head>
     <title>Drinks Tracker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 </head>
 
 <body>
     <script>
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        window.onload = function () {
-            var n = getCookie('name');
-            document.getElementById('name').innerText = n;
-        };
+        $(document).ready(function(){
+            $('#name').text(Cookies.get('name'));
+        });
     </script>
     <h1>Profile</h1>
     <p id='name'>Hello world</p>
